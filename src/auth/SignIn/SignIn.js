@@ -41,12 +41,6 @@ const validationSchema = yup.object({
     .string("Enter your password")
     .min(8, "Password should be of minimum 8 characters length")
     .required("Password is required"),
-  firstName: yup
-    .string("Enter your first name")
-    .required("First name is required"),
-  lastName: yup
-    .string("Enter your last name")
-    .required("Last name is required"),
 });
 
 export default function SignIn() {
@@ -96,7 +90,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component='h1' variant='h5'>
-            Sign up
+            Sign in
           </Typography>
           <form onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
             <TextField
@@ -127,35 +121,12 @@ export default function SignIn() {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
             />
-            <TextField
-              margin='normal'
-              autoComplete='given-name'
-              name='firstName'
-              required
-              fullWidth
-              id='firstName'
-              label='First Name'
-              autoFocus
-              value={formik.values.firstName}
-              onChange={formik.handleChange}
-              error={
-                formik.touched.firstName && Boolean(formik.errors.firstName)
-              }
-              helperText={formik.touched.firstName && formik.errors.firstName}
-            />
-            <TextField
-              margin='normal'
-              required
-              fullWidth
-              id='lastName'
-              label='Last Name'
-              name='lastName'
-              autoComplete='family-name'
-              value={formik.values.lastName}
-              onChange={formik.handleChange}
-              error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-              helperText={formik.touched.lastName && formik.errors.lastName}
-            />
+            <Grid container xs={12} justifyContent={'flex-end'}>
+              <FormControlLabel
+                control={<Checkbox value='remember' color='primary' />}
+                label='Remember me'
+              />
+            </Grid>
             <Button
               type='submit'
               fullWidth
@@ -164,9 +135,14 @@ export default function SignIn() {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs={12}>
-                <Link href='/login' variant='body2'>
-                  {"Already have an account? Sign in"}
+              <Grid item xs>
+                <Link href='#' variant='body2'>
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href='/register' variant='body2'>
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
