@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 function Copyright(props) {
   return (
@@ -32,15 +34,36 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+const validationSchema = yup.object({
+  email: yup
+    .string("Enter your email")
+    .email("Enter a valid email")
+    .required("Email is required"),
+  password: yup
+    .string("Enter your password")
+    .min(8, "Password should be of minimum 8 characters length")
+    .required("Password is required"),
+  firstName: yup
+    .string("Enter your first name")
+    .required("First name is required"),
+  lastName: yup
+    .string("Enter your last name")
+    .required("Last name is required"),
+});
+
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values, null, 2));
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -59,10 +82,10 @@ export default function SignUp() {
           <Typography component='h1' variant='h5'>
             Sign up
           </Typography>
-          <Box
+          <form
+            onSubmit={formik.handleSubmit}
             component='form'
             noValidate
-            onSubmit={handleSubmit}
             sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -74,6 +97,14 @@ export default function SignUp() {
                   id='firstName'
                   label='First Name'
                   autoFocus
+                  value={formik.values.firstName}
+                  onChange={formik.handleChange}
+                  error={
+                    formik.touched.firstName && Boolean(formik.errors.firstName)
+                  }
+                  helperText={
+                    formik.touched.firstName && formik.errors.firstName
+                  }
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -84,6 +115,12 @@ export default function SignUp() {
                   label='Last Name'
                   name='lastName'
                   autoComplete='family-name'
+                  value={formik.values.lastName}
+                  onChange={formik.handleChange}
+                  error={
+                    formik.touched.lastName && Boolean(formik.errors.lastName)
+                  }
+                  helperText={formik.touched.lastName && formik.errors.lastName}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -94,6 +131,10 @@ export default function SignUp() {
                   label='Email Address'
                   name='email'
                   autoComplete='email'
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helperText={formik.touched.email && formik.errors.email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -105,6 +146,12 @@ export default function SignUp() {
                   type='password'
                   id='password'
                   autoComplete='new-password'
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  error={
+                    formik.touched.password && Boolean(formik.errors.password)
+                  }
+                  helperText={formik.touched.password && formik.errors.password}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -130,7 +177,7 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
-          </Box>
+          </form>
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
