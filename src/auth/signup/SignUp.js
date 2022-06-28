@@ -11,6 +11,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 
 function Copyright(props) {
   return (
@@ -47,6 +52,11 @@ const validationSchema = yup.object({
 });
 
 export default function SignUp() {
+  const [value, setValue] = React.useState("Tenant");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -152,6 +162,26 @@ export default function SignUp() {
               error={formik.touched.lastName && Boolean(formik.errors.lastName)}
               helperText={formik.touched.lastName && formik.errors.lastName}
             />
+            <FormControl>
+              <RadioGroup
+                row
+                aria-labelledby='demo-controlled-radio-buttons-group'
+                name='controlled-radio-buttons-group'
+                value={value}
+                onChange={handleChange}>
+                <FormControlLabel
+                  checked
+                  value='tenant'
+                  control={<Radio />}
+                  label='Tenant'
+                />
+                <FormControlLabel
+                  value='landlord'
+                  control={<Radio />}
+                  label='Landlord'
+                />
+              </RadioGroup>
+            </FormControl>
             <Button
               type='submit'
               fullWidth
