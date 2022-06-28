@@ -46,7 +46,7 @@ const validationSchema = yup.object({
     .required("Last name is required"),
 });
 
-export default function SignIn() {
+export default function SignUp() {
   const formik = useFormik({
     initialValues: {
       firstName: "",
