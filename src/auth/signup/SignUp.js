@@ -69,7 +69,6 @@ export default function SignUp() {
         isTenant: role === "tenant" ? true : false,
         isLandlord: role === "landlord" ? true : false,
       });
-      console.log(JSON.stringify(values, null, 2));
     },
   });
 
@@ -188,8 +187,7 @@ export default function SignUp() {
               type='submit'
               fullWidth
               variant='contained'
-              sx={{ mt: 3, mb: 2 }}>
-              Sign Up
+              sx={{ mt: 3, mb: 2 }}>Sign Up
             </Button>
             <Grid container>
               <Grid item xs={12}>

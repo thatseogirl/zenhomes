@@ -77,20 +77,23 @@ export default function Sidebar() {
             </StyledButton>
 
             <StyledButton>
-              <li
-                style={{
-                  textDecoration: "none",
-                  color: "#fff",
-                  listStyle: "none",
-                  fontSize: "1em",
-                }}
-              >
-                Sign Out
-              </li>
+              <Link
+                to='/'>
+                <li
+                  style={{
+                    textDecoration: "none",
+                    color: "#fff",
+                    listStyle: "none",
+                    fontSize: "1em",
+                  }}
+                >
+                  Sign Out
+                </li>
+              </Link>
             </StyledButton>
           </UlFlex>
         </StyledMargin>
       </div>
-    </SideNav>
+    </SideNav >
   );
 }
