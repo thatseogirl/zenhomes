@@ -15,7 +15,7 @@ export default function Tenants({ tenantsData }) {
                 </div>
                 <Grid>
                     {tenantsData.map((data) => (
-                        <Card key={data.id}>
+                        <Card key={data.id} style={{ height: "300px" }}>
                             <Card.Img
                                 variant='top'
                                 src={data.image}
@@ -23,7 +23,7 @@ export default function Tenants({ tenantsData }) {
                             />
                             <Card.Body>
                                 <Card.Title>
-                                    Tenants Name: <Color>{data.tenantsName}</Color>{" "}
+                                    Tenants Name: <Color>{data.tenantsName}</Color>
                                 </Card.Title>
                                 <Card.Title>
                                     Address: <Color>{data.address}</Color>

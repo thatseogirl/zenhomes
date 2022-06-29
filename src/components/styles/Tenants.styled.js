@@ -9,7 +9,6 @@ export const Grid = styled.div`
     height: 90vh;
     overflow: scroll;
     margin-top: 30px;
-
 `;
 
 export const Color = styled.span`
