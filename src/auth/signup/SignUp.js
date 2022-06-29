@@ -190,8 +190,7 @@ export default function SignUp() {
               type='submit'
               fullWidth
               variant='contained'
-              sx={{ mt: 3, mb: 2 }}>
-              Sign Up
+              sx={{ mt: 3, mb: 2 }}>Sign Up
             </Button>
             <Grid container>
               <Grid item xs={12}>
