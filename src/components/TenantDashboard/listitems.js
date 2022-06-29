@@ -10,6 +10,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import MessageIcon from "@mui/icons-material/Message";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import { Link } from "react-router-dom";
 
 export const mainListItems = (
   <React.Fragment>
@@ -47,7 +48,9 @@ export const mainListItems = (
       <ListItemIcon>
         <LogoutIcon />
       </ListItemIcon>
-      <ListItemText primary='Sign out' />
+      <Link to={"/"} style={{textDecoration:"none", color:'#000'}}>
+        <ListItemText primary='Sign out' />
+      </Link>
     </ListItemButton>
   </React.Fragment>
 );
