@@ -15,7 +15,7 @@ export default function Sidebar() {
           <UlFlex>
             <StyledButton>
               <Link
-                to='/landlord/overview'
+                to='/landlord'
                 style={{
                   textDecoration: "none",
                   color: "#fff",
