@@ -189,7 +189,9 @@ export default function SignUp() {
               fullWidth
               variant='contained'
               sx={{ mt: 3, mb: 2 }}>
-              Sign Up
+              <Link href={role==='tenant'?'/tenant':"landlord"} variant='body2' style={{color:"#fafafa"}}>
+                {"Sign Up"}
+              </Link>
             </Button>
             <Grid container>
               <Grid item xs={12}>
