@@ -15,7 +15,6 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 
 function Copyright(props) {
   return (
@@ -52,10 +51,10 @@ const validationSchema = yup.object({
 });
 
 export default function SignUp() {
-  const [value, setValue] = React.useState("Tenant");
+  const [role, setRole] = React.useState("tenant");
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setRole(event.target.value);
   };
   const formik = useFormik({
     initialValues: {
@@ -66,6 +65,10 @@ export default function SignUp() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      Object.assign(values, {
+        isTenant: role === "tenant" ? true : false,
+        isLandlord: role === "landlord" ? true : false,
+      });
       console.log(JSON.stringify(values, null, 2));
     },
   });
@@ -167,10 +170,9 @@ export default function SignUp() {
                 row
                 aria-labelledby='demo-controlled-radio-buttons-group'
                 name='controlled-radio-buttons-group'
-                value={value}
+                value={role}
                 onChange={handleChange}>
                 <FormControlLabel
-                  checked
                   value='tenant'
                   control={<Radio />}
                   label='Tenant'
