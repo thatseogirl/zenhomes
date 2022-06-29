@@ -15,6 +15,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -51,6 +52,7 @@ const validationSchema = yup.object({
 });
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [role, setRole] = React.useState("tenant");
 
   const handleChange = (event) => {
@@ -69,6 +71,7 @@ export default function SignUp() {
         isTenant: role === "tenant" ? true : false,
         isLandlord: role === "landlord" ? true : false,
       });
+      navigate(`/${role}`)
     },
   });
 
