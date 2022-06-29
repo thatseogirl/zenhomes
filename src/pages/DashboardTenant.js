@@ -21,7 +21,6 @@ import { mainListItems, secondaryListItems } from "../components/TenantDashboard
 import Chart from "../components/TenantDashboard/Chart";
 import Deposits from "../components/TenantDashboard/Deposits";
 import Orders from "../components/TenantDashboard/Orders";
-import Title from "../components/TenantDashboard/Title";
 
 function Copyright(props) {
   return (
