@@ -1,31 +1,34 @@
 import React from "react";
 import "./Home.css";
-import zenhomez from "../images/zenhomez.jpg";
-import property from "../images/property.jpg";
-import { Button } from "@mui/material";
+import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="container">
-      <div className="headingStyle">
-        <img src={zenhomez} alt="zenhomes" />
-        <img src={property} alt="property" />
-      </div>
-      <div className="buttons">
-        <div className="signup">
-          <p><h1>Signup for free</h1>
-            <Button variant="contained" href="/register">
-              {"Sign up"}
-            </Button>
-          </p>
+    <div className='bg'>
+      <div className='center'>
+        <div className='headingStyle'>
+          <img src={logo} alt='logo' />
         </div>
+        <div className='property'>
+          <div>
+            <p className='text1'>Property management made easy!</p>
+            <hr className='hr' />
+            <p className='text2'>
+              Zenhomes is the one-stop-shop for private landlords and property
+              managers. Our digital platform makes property & tenant management
+              easy and smart.
+            </p>
+          </div>
 
-        <div className="login">
-          <p> <h1>Already Signed up?</h1>
-            <Button variant="contained" href="/register">
-              {"Login"}
-            </Button>
-          </p>
+          <div className='button'>
+            <Link to='/register' className='link'>
+              Sign up
+            </Link>
+            <Link to='/login' className='link'>
+              Sign In
+            </Link>
+          </div>
         </div>
       </div>
     </div>

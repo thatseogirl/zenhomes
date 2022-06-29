@@ -7,7 +7,6 @@ import Home from './Home/Home';
 import SignUp from './auth/signup/SignUp';
 import DashboardOverview from './components/Dashboard/DashboardOverview';
 import Tenants from './components/Dashboard/Tenants';
-import LandLordDashboard from './components/LandLordDashboard';
 import TenantsList from './components/Dashboard/TenantList';
 
 function App() {
@@ -17,9 +16,8 @@ function App() {
   return (
     <div className='App'>
       <Routes>
-        <Route path="/landlord" element={<LandLordDashboard />} />
         <Route path="/landlord/tenantList" element={<Tenants tenantsData={tenantsData} />} />
-        <Route path="/landlord/overview" element={<DashboardOverview tenantsData={tenantsData} />} />
+        <Route path="/landlord" element={<DashboardOverview tenantsData={tenantsData} />} />
         {/* <Route path="/rentals" element={<Rentals />} /> */}
         {/* <Route path="/rentals/:rentalId" element={<RentalDetails />} /> */}
         {/* <Route path="/rentals/add" element={<AddRental />} /> */}

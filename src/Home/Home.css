@@ -1,27 +1,57 @@
- .container{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
-    background-color:white ;
- }
- .headingStyle  {
-    display: flex;
-     color:white;
-    font-family: Arial;
-    height:80vh;
-    width: 100%;
+.bg {
+  background-image: url("../images/ZEN.jpeg");
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 1500px;
+  width: 100%;
+  height: 100vh;
 }
-img{
-    flex: 1 1 0
+
+.center {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 90px;
+  color: #fff;
 }
-.buttons{
-    display: flex;
-    justify-content: space-around;
-   
-    margin-bottom: 50px;
-    padding: 10px;
-    height: 50px;
+
+.property {
+  padding-top: 30px;
+  width: 50%;
+  line-height: 1.2;
 }
-    
-    
+
+.text1 {
+  font-size: 3em;
+  margin-bottom: 40px;
+}
+
+.text2 {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+.button {
+  display: flex;
+  gap: 30px;
+}
+
+.hr {
+  border: 20px thin #fff;
+  color: white;
+  width: 35%;
+}
+
+.link {
+  border-radius: 20px;
+  background-color: #fff;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  color: #0177ff;
+  font-weight: bold;
+}
+
+img {
+  width: 30%;
+}
