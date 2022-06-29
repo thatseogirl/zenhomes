@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import "./App.css";
 import SignIn from './auth/SignIn/SignIn';
 import Home from './Home/Home';
-import SignUp from './auth/signup/SignUp';
+import SignUp from './auth/SignUp/SignUp';
 import DashboardOverview from './components/Dashboard/DashboardOverview';
 import Tenants from './components/Dashboard/Tenants';
 import TenantsList from './components/Dashboard/TenantList';
